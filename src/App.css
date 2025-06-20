@@ -33,9 +33,61 @@ html, body, #root {
 
 .controls {
   position: absolute;
-  width: 420px;
-  height: 140px;
-  z-index: 9001;
-  bottom: 25vh;
-  left: 10vw;
+  bottom: 5vh;
+  left: 5vw;
+  width: 90vw;
+  max-width: 420px;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 12px;
+  padding: 1rem;
+  z-index: 10;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+}
+
+.deck-count {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.buttons button {
+  flex: 1 1 30%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  background: #333;
+  color: #fff;
+  border: 1px solid #555;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.buttons button:hover {
+  background: #555;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    left: 50%;
+    bottom: 3vh;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 0.75rem;
+  }
+
+  .deck-count {
+    font-size: 1rem;
+  }
+
+  .buttons button {
+    flex: 1 1 45%;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.5rem;
+  }
 }
