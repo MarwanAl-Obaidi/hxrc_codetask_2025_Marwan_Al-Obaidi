@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import Deck from '../components/Deck'
 import Card from '../components/Card'
+import HoverCard from './animations/hovercard'
 import { animateDeal } from './animations/dealcards'
 import './app.css'
 
@@ -69,14 +70,16 @@ export default function App() {
             const rotY = (idx - (count - 1) / 2) * 0.1
             const origin = deckGroupRef.current.position
             return (
-              <Card
-                key={`${code}-${idx}`}
-                ref={dealtRefs.current[idx]}
-                code={code}
-                dealt={true}
-                rotation={[0, rotY, 0]}
-                position={[origin.x, origin.y, origin.z]}
-              />
+              <HoverCard key={`hover-${code}-${idx}`}>
+                <Card
+                  key={`${code}-${idx}`}
+                  ref={dealtRefs.current[idx]}
+                  code={code}
+                  dealt={true}
+                  rotation={[0, rotY, 0]}
+                  position={[origin.x, origin.y, origin.z]}
+                />
+              </HoverCard>
             )
           })}
         </Canvas>
