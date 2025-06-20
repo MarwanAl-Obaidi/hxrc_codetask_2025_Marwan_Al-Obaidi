@@ -4,7 +4,7 @@ import Deck from '../components/Deck'
 import Card from '../components/Card'
 import HoverCard from './animations/hovercard'
 import { animateDeal } from './animations/dealcards'
-import './app.css'
+import './App.css'
 
 export default function App() {
   const [dealtCards, setDealtCards] = useState([])
