@@ -1,44 +1,65 @@
 # Helsinki XR Center – Coding Task 2025
 
-This task is intended to evaluate your frontend skills and understanding of interaction design, UI/UX, and code structure in a Three.js + React environment. 
-You will enhance an existing Tarot card deck viewer and improve its functionality and feel. 
+This repository is my solution to the HXRC Coding Task of 2025.
 
-> **Note:** This task is designed to be completed in **3–5 hours**.  
-> It should **not** take a full working day.  
-> Please prioritize clarity and interactivity over polish or completeness.
+## Coding Tasks
 
+1. Create a better UI for the Tarot card application. ✔️
 
-Setup Instructions:
-1. Clone the repository: 
-	https://gitlab.com/hxrc_public/hxrc_codetask_2025 
-2. Install dependencies and run the app locally:
-	npm install
-	npm run dev
-3. You can preview the current application functionality at:  
-	https://xrdev.edu.metropolia.fi/hxrc_codetask_2025 
+2. Improve the shuffling logic. ❌
 
-Coding Tasks:
-1. Create a better UI for the Tarot card application.
-	• Use your preferred styling method (CSS, styled-components, Tailwind, etc).
-	• Ensure responsive layout and a user-friendly experience on 
-	desktop and mobile
-2. Improve the shuffling logic.
-	• Ensure that each deal gives a truly randomized result.
-	• Avoid predictable orders after shuffling.
+3. Add a hover effect for dealt cards only. ✔️
 
-3. Add a hover effect for dealt cards only.
-	• Implement the logic in: /src/animations/hovercard.js
-	• Cards should animate forward when hovered, improving visibility.
+4. Enhance the README file. ✔️
+	- Check down below.
 
-4. Enhance the README file:
-	• Explain how you would improve the overall user experience.
-	• Propose ideas on how to gamify the Tarot app if given a 
-	full week to develop.
+5. Submit your task. ✔️
+	- [Deployment](https://hxrc-codetask-2025-marwan-al-obaidi.onrender.com/)
 
-5. Submit your task: 
-	• Upload your code to a repository (GitHub, GitLab, etc).
-	• Deploy the final app using a service like Vercel, Netlify, or GitHub Pages.
-	• Share both the repository link and the live demo link. 
+## Improvements to the app
 
-Questions? If you have any questions about the task, please contact:
-Juho Puurunen – juho.puurunen@metropolia.fi
+### Gamification
+
+The current mechanics can be further improved to create a Digital Card Battle Game.
+
+#### Objective
+
+Players draw and play cards to reduce their opponents Hit Points (HP) and Shield Points (SP) to zero. Each card has powers based on its meaning, suits, and ranks.
+
+#### Match setup
+
+Each player starts with a full deck of cards. Players start with an equal number of 500 HP. Both decks are shuffled and drawn in an opening hand of 5 cards.
+
+#### Card types & roles
+
+Tarot cards come with two types of cards: Major and Minor Arcana.
+
+**Major Arcanas** are strong cards with impactful abilities.
+
+Example card abilities:
+
+- Death: Instantly discard one card from the opponents hand.
+- The Lovers: Swap a card from your hand with an opponents card.
+- The Devil: Force the opponent to skip a turn.
+- The Empress: Steal 5 HP from the opponent.
+
+**Minor Arcanas** are weaker cards that still offer decent utility. Can be combined with major arcanas to increase potency.
+
+Example card abilities:
+
+- Cups: Healing or shield boost.
+- Wands: Healing or damage boost.
+- Swords: damage boost.
+- Pentacles: shield boost.
+
+Cards are also numbered, which indicate their potency.
+
+Example card combination: Using an Empress card will simply steal 5 HP from the opponent. Combining a Sword 5 card will multiple its effect by 5 resulting in the total of 25 HP being stolen.
+
+#### Areas of consideration
+
+This basic card game requires about a week of development. Further weeks are required if including a backend to deal with online matches, statistics, accounts, and other extras.
+
+### UX improvements
+
+The current applications UI can be improved by moving the cards to be viewed in rows of 4 to save space, especially in mobile views. When cards are clicked/tapped on they can be rotated and turned around freely. A possible description of the card can be shown next to it. If taking into account the gamification, the UI has to be overhauled to allow both players cards and decks to be visible and draggable as a minimum. Other functionality such options and account management must be accessible from the main menu.
