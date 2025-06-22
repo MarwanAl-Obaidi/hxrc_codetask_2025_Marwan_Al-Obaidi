@@ -73,6 +73,13 @@ html, body, #root {
   background: #555;
 }
 
+.loading {
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+
 @media (max-width: 768px) {
   .controls {
     left: 50%;

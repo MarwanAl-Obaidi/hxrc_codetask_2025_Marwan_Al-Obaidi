@@ -9,10 +9,16 @@ import './App.css'
 export default function App() {
   const [dealtCards, setDealtCards] = useState([])
   const [deckCount, setDeckCount] = useState(0)
+  const [loading, setLoading] = useState(true)
 
   const dealtRefs = useRef([])
   const deckGroupRef = useRef()
-  const handleDeckChange = (count) => setDeckCount(count)
+
+  const handleDeckChange = (count) => {
+    setDeckCount(count)
+    if (loading) setLoading(false)
+  }
+
   const handleDeal = (cards) => {
     dealtRefs.current = cards.map(() => React.createRef())
     setDealtCards(cards)
@@ -86,17 +92,21 @@ export default function App() {
       </div>
 
       <div className="controls">
-        <div className="deck-count">Deck: {deckCount} cards left</div>
-        <div className="buttons">
-          {[1, 2, 3, 4, 5, 6, 7].map((n) => (
-            <button key={n} onClick={() => requestDeal(n)}>
-              Deal {n}
-            </button>
-          ))}
-          <button onClick={resetDeck}>
-            Reset Deck
-          </button>
-        </div>
+        {loading ? (
+          <div className="loading">Loading...</div>
+        ) : (
+          <div>
+            <div className="deck-count">Deck: {deckCount} cards left</div>
+            <div className="buttons">
+              {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+                <button key={n} onClick={() => requestDeal(n)}>
+                  Deal {n}
+                </button>
+              ))}
+              <button onClick={resetDeck}>Reset Deck</button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   )
